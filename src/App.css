@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+nav .nav-item {
+  display: inline-block;
+  margin: 8px;
+}
+
+nav {
+  justify-content: center;
+}
+
+.form-group {
+  margin: 8px;
+}
+.account-grp {
+  margin: 8px;
+  padding: 8px;
+}
+.about-us {
+  margin: 8px;
+  padding: 8px;
+}

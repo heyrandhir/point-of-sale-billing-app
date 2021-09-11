@@ -48,21 +48,31 @@ const Register = (props) => {
         }
     }
     return (
-        <div>
-            <form onSubmit={handleFormSubmit} >
-                <label>Name</label>
-                <input type='text' value={userName} onChange={handleInputChange} name='userName'></input> <br />
-                <label>Email</label>
-                <input type='text' value={userEmail} onChange={handleInputChange} name='userEmail'></input> <br />
-                <label>Password</label>
-                <input type='text' value={userPw} onChange={handleInputChange} name='userPw'></input> <br />
-                <label>Business Name</label>
-                <input type='text' value={userBusinessName} onChange={handleInputChange} name='userBusinessName'></input> <br />
-                <label>Business Address</label>
-                <textarea value={userAddress} onChange={handleInputChange} name='userAddress'></textarea> <br />
-                <input type='submit'></input>
-            </form>
-        </div>
+        <form onSubmit={handleFormSubmit} >
+            <div className="form-group">
+                <label >Name</label> <br />
+                <input type="text" className="form-control" value={userName} onChange={handleInputChange} name='userName' /> <br />
+            </div>
+            <div className="form-group">
+                <label >Email address</label> <br />
+                <input type="email" className="form-control" value={userEmail} onChange={handleInputChange} name='userEmail' /> <br />
+            </div>
+            <div className="form-group">
+                <label >Password</label> <br />
+                <input type="password" className="form-control" value={userPw} onChange={handleInputChange} name='userPw' />
+            </div>
+            <div className="form-group">
+                <label >Businees Name</label> <br />
+                <input type="text" className="form-control" value={userBusinessName} onChange={handleInputChange} name='userBusinessName' /> <br />
+            </div>
+            <div className="form-group">
+                <label >Businees address</label> <br />
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" value={userAddress} onChange={handleInputChange} name='userAddress'></textarea>
+            </div>
+            <div className="form-group">
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </div>
+        </form>
     )
 }
 export default withRouter(Register)

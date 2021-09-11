@@ -15,12 +15,14 @@ const Account = (props) => {
     }, [])
     console.log(userInfo)
     return (
-        <div>
-            <h2>Your Account Details</h2>
-            <h4>username - {userInfo.username}</h4>
-            <h4>email - {userInfo.email}</h4>
-            <h4>businessName - {userInfo.businessName}</h4>
-            <h4>address - {userInfo.address}</h4>
+        <div className='account-grp'>
+            <h4>Your Account Details</h4>
+            <p class="text-justify" style={{ width: '20rem' }}>
+                <strong>username</strong> - {userInfo.username} <br />
+                <strong>email </strong>- {userInfo.email} <br />
+                <strong>businessName </strong>- {userInfo.businessName} <br />
+                <strong>address </strong>- {userInfo.address} <br />
+            </p>
         </div>
     )
 }

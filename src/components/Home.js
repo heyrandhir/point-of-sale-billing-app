@@ -22,7 +22,6 @@ const Home = (props) => {
 
     return (
         <div>
-            <h1>Welcome to the Point of Sales Billing App</h1>
             <Navbar toggleLogin={toggleLogin} isLoggedin={isLoggedin} />
             <Switch>
                 <Route path='/login'><Login toggleLogin={toggleLogin} /></Route>
