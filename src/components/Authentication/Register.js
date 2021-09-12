@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../../actions/authenicate";
 import { withRouter } from "react-router";

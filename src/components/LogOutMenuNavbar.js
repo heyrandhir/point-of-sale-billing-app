@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, Route, Switch } from "react-router-dom";
 
 const LogOutMenuNavbar = (props) => {
     const { toggleLogin } = props
@@ -29,7 +28,6 @@ const LogOutMenuNavbar = (props) => {
                         <li className="nav-item">
                             <a className="nav-link" href="/billing">Billing</a>
                         </li>
-                        {/* <li> <Link to='/' onClick={onLogout}>Log Out</Link></li> */}
                         <li className="nav-item">
                             <a className="nav-link" onClick={onLogout} href="/">Log Out</a>
                         </li>
