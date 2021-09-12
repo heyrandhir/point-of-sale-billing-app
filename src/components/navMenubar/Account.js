@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserInfo } from "../actions/authenicate";
+import { getUserInfo } from "../../actions/authenicate";
 
 const Account = (props) => {
-
     const dispatch = useDispatch()
 
     useEffect(() => {

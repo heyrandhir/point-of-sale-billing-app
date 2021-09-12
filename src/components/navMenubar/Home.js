@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from './Navbar'
 import { Route, Switch } from 'react-router-dom'
-import Login from './Authentication/Login'
-import Register from './Authentication/Register'
+import Login from '../authentication/Login'
+import Register from '../authentication/Register'
 import Account from './Account'
 import AboutUs from './AboutUs'
 import Support from './Support'
-import Customer from './customers/Customer'
+import Customer from '../customers/Customer'
 
 const Home = (props) => {
 
