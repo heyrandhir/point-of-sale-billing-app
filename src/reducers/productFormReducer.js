@@ -1,12 +1,12 @@
 const initialStatus = { updateStatus: false }
-const customerFormReducer = (state = initialStatus, action) => {
+const productFormReducer = (state = initialStatus, action) => {
     switch (action.type) {
-        case 'CUSTOMER_FORM_UPDATE_ON':
+        case 'PRODUCT_FORM_UPDATE_ON':
             return { ...action.payload }
-        case 'CUSTOMER_FORM_UPDATE_OFF':
+        case 'PRODUCT_FORM_UPDATE_OFF':
             return { ...state, ...action.payload }
         default:
             return { ...state }
     }
 }
-export default customerFormReducer
+export default productFormReducer

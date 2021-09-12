@@ -1,17 +1,17 @@
-export const formUpdateOn = (customerData) => {
+export const customerFormUpdateOn = (customerData) => {
     return ((dispatch) => {
         customerData.updateStatus = true
         dispatch({
-            type: 'FORM_UPDATE_ON',
+            type: 'CUSTOMER_FORM_UPDATE_ON',
             payload: customerData
         })
     })
 }
-export const formUpdateOff = (customerData) => {
+export const customerFormUpdateOff = (customerData) => {
     return ((dispatch) => {
         customerData.updateStatus = false
         dispatch({
-            type: 'FORM_UPDATE_OFF',
+            type: 'CUSTOMER_FORM_UPDATE_OFF',
             payload: customerData
         })
     })

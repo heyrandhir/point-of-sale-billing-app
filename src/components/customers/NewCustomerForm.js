@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createCustomer, updateCustomer } from "../../actions/customers";
-import { formUpdateOff } from "../../actions/formUpdate";
+import { customerFormUpdateOff } from "../../actions/customerFormUpdate";
 
 const NewCustomerForm = (props) => {
     const [customerName, setCustomerName] = useState('')
@@ -10,10 +10,10 @@ const NewCustomerForm = (props) => {
 
     const dispatch = useDispatch()
     const updateFromFlag = useSelector((state) => {
-        return state.forms.updateStatus
+        return state.customerForms.updateStatus
     })
     const updateFromDetails = useSelector((state) => {
-        return state.forms
+        return state.customerForms
     })
     useEffect(() => {
         prefillInputFields()
@@ -63,13 +63,13 @@ const NewCustomerForm = (props) => {
         setCustomerEmail('')
         setMobileNo('')
         if (updateFromFlag) {
-            dispatch(formUpdateOff({}))
+            dispatch(customerFormUpdateOff({}))
         }
     }
     return (
         <div>
             <form onSubmit={handleFormSubmit} >
-                {updateFromFlag ? <h2>Update Customer Details </h2> : <h2>Add new Customer</h2>}
+                {updateFromFlag ? <h2>Update Customer Details </h2> : <h2>Add a new Customer</h2>}
                 <div className="form-group">
                     <label >Name</label> <br />
                     <input type="text" className="form-control" value={customerName} onChange={handleInputChange} name='customerName' />

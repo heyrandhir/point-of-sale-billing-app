@@ -7,6 +7,7 @@ import Account from './Account'
 import AboutUs from './AboutUs'
 import Support from './Support'
 import Customer from '../customers/Customer'
+import Product from '../products/Product'
 
 const Home = (props) => {
 
@@ -31,6 +32,7 @@ const Home = (props) => {
                 <Route path='/about'><AboutUs /></Route>
                 <Route path='/support'><Support /></Route>
                 <Route path='/customers'><Customer /></Route>
+                <Route path='/products'><Product /></Route>
             </Switch>
         </div>
     )

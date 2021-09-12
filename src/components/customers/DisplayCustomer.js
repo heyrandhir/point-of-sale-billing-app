@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCustomers, deleteCustomer } from "../../actions/customers";
-import { formUpdateOn } from "../../actions/formUpdate";
+import { customerFormUpdateOn } from "../../actions/customerFormUpdate";
 
 const DisplayExistingCustomer = (props) => {
     const dispatch = useDispatch()
@@ -12,7 +12,7 @@ const DisplayExistingCustomer = (props) => {
         return state.customers
     })
     return (<div>
-        <table className="table table-dark table-striped">
+        {currCustomers.length > 0 && <table className="table table-dark table-striped">
             <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -25,7 +25,7 @@ const DisplayExistingCustomer = (props) => {
             <tbody>
                 {currCustomers.map((ele) => { return <DisplayIndividualCustomer key={ele._id} customrDetail={ele} /> })}
             </tbody>
-        </table>
+        </table>}
     </div>)
 }
 
@@ -39,7 +39,7 @@ const DisplayIndividualCustomer = (props) => {
             <td>{customrDetail.email}</td>
             <td>{customrDetail.mobile}</td>
             <td>{<a href='#' onClick={() => { dispatch(deleteCustomer(customrDetail._id)) }} >Delete</a>}</td>
-            <td>{<a href='#' onClick={() => { dispatch(formUpdateOn(customrDetail)) }} >Update</a>}</td>
+            <td>{<a href='#' onClick={() => { dispatch(customerFormUpdateOn(customrDetail)) }} >Update</a>}</td>
         </tr >)
 }
 
