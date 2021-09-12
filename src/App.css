@@ -57,3 +57,26 @@ nav {
   margin: 8px;
   padding: 8px;
 }
+.container {
+  display: flex;
+  flex-direction: row
+}
+.new-customer-container {
+  display: flex;
+  flex-direction: row
+}
+
+.nc-form {
+  border:1px solid black;
+}
+
+.table {
+  margin: 8px;
+  padding: 8px;
+}
+
+.table-cell td {
+  border:1px solid black;
+  margin: 8px;
+  padding: 8px;
+}

@@ -6,7 +6,7 @@ import Register from './Authentication/Register'
 import Account from './Account'
 import AboutUs from './AboutUs'
 import Support from './Support'
-import Customer from './Customer'
+import Customer from './customers/Customer'
 
 const Home = (props) => {
 

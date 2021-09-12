@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getCustomers, deleteCustomer } from "../actions/customers";
+import { getCustomers, deleteCustomer } from "../../actions/customers";
+import { formUpdateOn } from "../../actions/formUpdate";
 
 const DisplayExistingCustomer = (props) => {
     const dispatch = useDispatch()
@@ -28,10 +29,8 @@ const DisplayExistingCustomer = (props) => {
     </div>)
 }
 
-const updateCustomer = () => {
-}
-
 const DisplayIndividualCustomer = (props) => {
+
     const dispatch = useDispatch()
     const { customrDetail } = props
     return (
@@ -40,7 +39,7 @@ const DisplayIndividualCustomer = (props) => {
             <td>{customrDetail.email}</td>
             <td>{customrDetail.mobile}</td>
             <td>{<a href='#' onClick={() => { dispatch(deleteCustomer(customrDetail._id)) }} >Delete</a>}</td>
-            <td>{<a href='#' onClick={() => { updateCustomer(customrDetail._id) }} >Update</a>}</td>
+            <td>{<a href='#' onClick={() => { dispatch(formUpdateOn(customrDetail)) }} >Update</a>}</td>
         </tr >)
 }
 
