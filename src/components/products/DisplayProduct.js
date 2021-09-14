@@ -12,7 +12,7 @@ const DisplayExistingProduct = (props) => {
         return state.products
     })
     return (<div>
-        {currProducts.length > 0 && <table className="table table-dark table-striped">
+        {currProducts.length > 0 && <table className="table table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">Name</th>

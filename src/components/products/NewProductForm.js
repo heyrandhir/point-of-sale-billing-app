@@ -60,7 +60,7 @@ const NewProductForm = (props) => {
         }
     }
     return (
-        <div>
+        <div className="card border border-dark p-2" style={{ width: '25rem' }}>
             <form onSubmit={handleFormSubmit} >
                 {updateFromFlag ? <h2>Update Product Details </h2> : <h2>Add a new Product</h2>}
                 <div className="form-group">
@@ -72,10 +72,10 @@ const NewProductForm = (props) => {
                     <input type="text" className="form-control" value={price} onChange={handleInputChange} name='price' /> <br />
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-success me-md-2">Submit</button>
+                    {updateFromFlag && <button onClick={resetFormEntryFields} value='cancel' className="btn btn-danger me-md-2">Cancel</button>}
                 </div>
             </form>
-            {updateFromFlag && <button onClick={resetFormEntryFields} value='cancel' className="btn btn-danger">Cancel</button>}
         </div>
     )
 }

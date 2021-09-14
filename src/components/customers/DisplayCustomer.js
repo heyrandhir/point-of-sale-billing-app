@@ -12,7 +12,7 @@ const DisplayExistingCustomer = (props) => {
         return state.customers
     })
     return (<div>
-        {currCustomers.length > 0 && <table className="table table-dark table-striped">
+        {currCustomers.length > 0 && <table className="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Name</th>
