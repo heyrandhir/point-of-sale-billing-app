@@ -3,7 +3,7 @@ import axios from "axios";
 export const createNewBill = (cartData, setCurrentBill, setIsOpen) => {
     const jwtTok = localStorage.getItem('token')
     return (dispatch) => {
-        axios.post('http://dct-billing-app.herokuapp.com/api/bills', cartData, { headers: { Authorization: `Bearer ${jwtTok}` } })
+        axios.post('https://dct-billing-app.herokuapp.com/api/bills', cartData, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
                 const result = res.data
                 if (result.hasOwnProperty('errors')) {
@@ -27,7 +27,7 @@ export const createNewBill = (cartData, setCurrentBill, setIsOpen) => {
 export const getTheBill = (billId) => {
     const jwtTok = localStorage.getItem('token')
     return (dispatch) => {
-        axios.get(`http://dct-billing-app.herokuapp.com/api/bills/${billId}`, { headers: { Authorization: `Bearer ${jwtTok}` } })
+        axios.get(`https://dct-billing-app.herokuapp.com/api/bills/${billId}`, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
                 const result = res.data
                 if (result.hasOwnProperty('errors')) {
@@ -48,7 +48,7 @@ export const getTheBill = (billId) => {
 export const getAllBills = () => {
     const jwtTok = localStorage.getItem('token')
     return (dispatch) => {
-        axios.get(`http://dct-billing-app.herokuapp.com/api/bills`, { headers: { Authorization: `Bearer ${jwtTok}` } })
+        axios.get(`https://dct-billing-app.herokuapp.com/api/bills`, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
                 const result = res.data
                 if (result.hasOwnProperty('errors')) {
@@ -69,7 +69,7 @@ export const getAllBills = () => {
 export const deleteTheBill = (billId) => {
     const jwtTok = localStorage.getItem('token')
     return (dispatch) => {
-        axios.delete(`http://dct-billing-app.herokuapp.com/api/bills/${billId}`, { headers: { Authorization: `Bearer ${jwtTok}` } })
+        axios.delete(`https://dct-billing-app.herokuapp.com/api/bills/${billId}`, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
                 const result = res.data
                 if (result.hasOwnProperty('errors')) {

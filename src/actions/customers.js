@@ -3,7 +3,7 @@ import axios from "axios";
 export const getCustomers = () => {
     const jwtTok = localStorage.getItem('token')
     return (dispatch) => {
-        axios.get('http://dct-billing-app.herokuapp.com/api/customers', { headers: { Authorization: `Bearer ${jwtTok}` } })
+        axios.get('https://dct-billing-app.herokuapp.com/api/customers', { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
                 const result = res.data
                 if (result.hasOwnProperty('errors')) {
@@ -24,7 +24,7 @@ export const getCustomers = () => {
 export const createCustomer = (cutomerData) => {
     const jwtTok = localStorage.getItem('token')
     return (dispatch) => {
-        axios.post('http://dct-billing-app.herokuapp.com/api/customers', cutomerData, { headers: { Authorization: `Bearer ${jwtTok}` } })
+        axios.post('https://dct-billing-app.herokuapp.com/api/customers', cutomerData, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
                 const result = res.data
                 // console.log(`result is ${result}`)
@@ -46,7 +46,7 @@ export const createCustomer = (cutomerData) => {
 export const deleteCustomer = (customerId) => {
     const jwtTok = localStorage.getItem('token')
     return (dispatch) => {
-        axios.delete(`http://dct-billing-app.herokuapp.com/api/customers/${customerId}`, { headers: { Authorization: `Bearer ${jwtTok}` } })
+        axios.delete(`https://dct-billing-app.herokuapp.com/api/customers/${customerId}`, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
                 const result = res.data
                 if (result.hasOwnProperty('errors')) {
@@ -67,7 +67,7 @@ export const deleteCustomer = (customerId) => {
 export const updateCustomer = (customerData, customerId) => {
     const jwtTok = localStorage.getItem('token')
     return (dispatch) => {
-        axios.put(`http://dct-billing-app.herokuapp.com/api/customers/${customerId}`, customerData, { headers: { Authorization: `Bearer ${jwtTok}` } })
+        axios.put(`https://dct-billing-app.herokuapp.com/api/customers/${customerId}`, customerData, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
                 const result = res.data
                 if (result.hasOwnProperty('errors')) {

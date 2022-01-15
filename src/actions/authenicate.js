@@ -3,7 +3,7 @@ import axios from "axios"
 export const register = (userData) => {
     // console.log(userData)
     return (dispatch) => (
-        axios.post('http://dct-billing-app.herokuapp.com/api/users/register', userData)
+        axios.post('https://dct-billing-app.herokuapp.com/api/users/register', userData)
             .then((res) => {
                 const result = res.data
                 console.log(result)
@@ -25,7 +25,7 @@ export const register = (userData) => {
 export const login = (userCredentials, redirect) => {
     // console.log(`userCredentials are ${userCredentials}`)
     return () => (
-        axios.post('http://dct-billing-app.herokuapp.com/api/users/login', userCredentials)
+        axios.post('https://dct-billing-app.herokuapp.com/api/users/login', userCredentials)
             .then((res) => {
                 const result = res.data
                 // console.log('result')
@@ -47,7 +47,7 @@ export const login = (userCredentials, redirect) => {
 export const getUserInfo = () => {
     const jwtKey = localStorage.getItem('token')
     return (dispatch) => (
-        axios.get('http://dct-billing-app.herokuapp.com/api/users/account', { headers: { Authorization: `Bearer ${jwtKey}` } })
+        axios.get('https://dct-billing-app.herokuapp.com/api/users/account', { headers: { Authorization: `Bearer ${jwtKey}` } })
             .then((res) => {
                 const result = res.data
                 if (result.hasOwnProperty('errors')) {
