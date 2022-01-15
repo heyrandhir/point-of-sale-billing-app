@@ -8,17 +8,26 @@ import AboutUs from './AboutUs'
 import Support from './Support'
 import Customer from '../customers/Customer'
 import Product from '../products/Product'
+import BillingHomePage from '../billing/BillingHomePage'
+import { useDispatch } from 'react-redux'
+import { getCustomers } from '../../actions/customers'
+import { getProducts } from '../../actions/products'
+import { getAllBills } from '../../actions/billing'
 
 const Home = (props) => {
 
     const [isLoggedin, setIsLoggedin] = useState(false)
+    const dispatch = useDispatch()
 
     const toggleLogin = () => {
         setIsLoggedin(!(isLoggedin))
     }
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            setIsLoggedin(true)
+            toggleLogin()
+            dispatch(getCustomers())
+            dispatch(getProducts())
+            dispatch(getAllBills())
         }
     }, [])
 
@@ -33,6 +42,8 @@ const Home = (props) => {
                 <Route path='/support'><Support /></Route>
                 <Route path='/customers'><Customer /></Route>
                 <Route path='/products'><Product /></Route>
+                <Route path='/billing'><BillingHomePage /></Route>
+                <Route path='/' exact={true}><AboutUs /></Route>
             </Switch>
         </div>
     )

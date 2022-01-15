@@ -7,14 +7,15 @@ const LoginMenuNavbar = (props) => {
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <li className="nav-item">
+                            <a className="nav-link" href="/about">About Us</a>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/login">Login</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/register">Register</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/about">About Us</a>
-                        </li>
+
                         <li className="nav-item">
                             <a className="nav-link" href="/support">Support</a>
                         </li>

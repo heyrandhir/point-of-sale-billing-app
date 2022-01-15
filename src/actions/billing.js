@@ -1,21 +1,24 @@
 import axios from "axios";
 
-export const createNewBill = (cartDetails) => {
+export const createNewBill = (cartData, setCurrentBill, setIsOpen) => {
     const jwtTok = localStorage.getItem('token')
     return (dispatch) => {
-        axios.post('http://dct-billing-app.herokuapp.com/api/bills', cartDetails, { headers: { Authorization: `Bearer ${jwtTok}` } })
+        axios.post('http://dct-billing-app.herokuapp.com/api/bills', cartData, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
-                const res = res.data
-                if (res.hasOwnProperty('errors')) {
-                    alert(res.errors)
+                const result = res.data
+                if (result.hasOwnProperty('errors')) {
+                    alert(result.message)
                 } else {
                     dispatch({
                         type: 'CREATE_NEW_BILL',
-                        payload: cartDetails
+                        payload: result
                     })
+                    setCurrentBill(result)
+                    setIsOpen(true)
                 }
             })
             .catch((err) => {
+                // console.log(123)
                 alert(err)
             })
     }
@@ -26,13 +29,13 @@ export const getTheBill = (billId) => {
     return (dispatch) => {
         axios.get(`http://dct-billing-app.herokuapp.com/api/bills/${billId}`, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
-                const res = res.data
-                if (res.hasOwnProperty('errors')) {
-                    alert(res.errors)
+                const result = res.data
+                if (result.hasOwnProperty('errors')) {
+                    alert(result.errors)
                 } else {
                     dispatch({
                         type: 'GET_THE_BILL',
-                        payload: res
+                        payload: result
                     })
                 }
             })
@@ -47,13 +50,13 @@ export const getAllBills = () => {
     return (dispatch) => {
         axios.get(`http://dct-billing-app.herokuapp.com/api/bills`, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
-                const res = res.data
-                if (res.hasOwnProperty('errors')) {
-                    alert(res.errors)
+                const result = res.data
+                if (result.hasOwnProperty('errors')) {
+                    alert(result.errors)
                 } else {
                     dispatch({
                         type: 'GET_ALL_BILLS',
-                        payload: res
+                        payload: result
                     })
                 }
             })
@@ -66,15 +69,15 @@ export const getAllBills = () => {
 export const deleteTheBill = (billId) => {
     const jwtTok = localStorage.getItem('token')
     return (dispatch) => {
-        axios.delte(`http://dct-billing-app.herokuapp.com/api/bills/${billId}`, { headers: { Authorization: `Bearer ${jwtTok}` } })
+        axios.delete(`http://dct-billing-app.herokuapp.com/api/bills/${billId}`, { headers: { Authorization: `Bearer ${jwtTok}` } })
             .then((res) => {
-                const res = res.data
-                if (res.hasOwnProperty('errors')) {
-                    alert(res.errors)
+                const result = res.data
+                if (result.hasOwnProperty('errors')) {
+                    alert(result.errors)
                 } else {
                     dispatch({
                         type: 'DELETE_THE_BILL',
-                        payload: res
+                        payload: result._id
                     })
                 }
             })

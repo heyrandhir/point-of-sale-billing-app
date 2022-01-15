@@ -22,16 +22,19 @@ export const register = (userData) => {
     )
 }
 
-export const login = (userCredentials) => {
+export const login = (userCredentials, redirect) => {
     // console.log(`userCredentials are ${userCredentials}`)
     return () => (
         axios.post('http://dct-billing-app.herokuapp.com/api/users/login', userCredentials)
             .then((res) => {
                 const result = res.data
+                // console.log('result')
+                // console.log(result)
                 if (result.hasOwnProperty('errors')) {
                     alert(result.errors)
                 } else {
                     localStorage.setItem('token', result.token)
+                    redirect()
                     // console.log(`localStorage.getItem('token') - ${localStorage.getItem('token')}`)
                 }
             }) //success

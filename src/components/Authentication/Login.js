@@ -15,10 +15,14 @@ const Login = (props) => {
             email: userEmail,
             password: userPw
         }
+        const redirect = () => {
+            props.history.push('/account')
+            toggleLogin()
+        }
         // console.log(formData)
-        dispatch(login(formData))
-        toggleLogin()
-        props.history.push('/account')
+        dispatch(login(formData, redirect))
+
+        // props.history.push('/account')
     }
 
     const handleInputChange = (e) => {
@@ -34,20 +38,32 @@ const Login = (props) => {
         }
     }
 
+    const setDummyLink = () => {
+        setUserEmail('aa11@gmail.com')
+        setUserPw('aa11@gmail.com')
+    }
+
     return (
-        <form onSubmit={handleFormSubmit} >
-            <div className="form-group">
-                <label >Email address</label> <br />
-                <input type="email" className="form-control" value={userEmail} onChange={handleInputChange} name='userEmail' /> <br />
+        <div class="container mt-5 mb-5 d-flex justify-content-center">
+            <div class="card px-1 py-4">
+                <div class="card-body">
+                    <form onSubmit={handleFormSubmit} >
+                        <div className="form-group">
+                            {/* <label >Email</label> <br /> */}
+                            <input type="email" className="form-control" value={userEmail} onChange={handleInputChange} name='userEmail' placeholder="Email" />
+                        </div>
+                        <div className="form-group">
+                            {/* <label >Password</label> <br /> */}
+                            <input type="password" className="form-control" value={userPw} onChange={handleInputChange} name='userPw' placeholder="Password" />
+                        </div>
+                        <div className="form-group">
+                            <button type="submit" className="btn btn-primary">Login</button>
+                        </div>
+                        <a className="nav-link" href="#" onClick={setDummyLink}>Use Dummy Login</a>
+                    </form>
+                </div>
             </div>
-            <div className="form-group">
-                <label >Password</label> <br />
-                <input type="password" className="form-control" value={userPw} onChange={handleInputChange} name='userPw' />
-            </div>
-            <div className="form-group">
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </div>
-        </form>
+        </div>
     )
 }
 

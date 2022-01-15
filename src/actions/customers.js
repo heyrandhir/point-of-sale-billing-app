@@ -54,7 +54,7 @@ export const deleteCustomer = (customerId) => {
                 } else {
                     dispatch({
                         type: 'DELETE_CUSTOMER',
-                        payload: customerId
+                        payload: result._id
                     })
                 }
             })

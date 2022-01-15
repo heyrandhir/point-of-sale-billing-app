@@ -14,16 +14,20 @@ const Account = (props) => {
         return state.authenticate
     })
 
-    console.log(`from outside useEffect userInfo ${userInfo}`)
+    // console.log(`from outside useEffect userInfo ${userInfo}`)
     return (
-        <div className='account-grp'>
-            <h4>Your Account Details</h4>
-            <p className="text-justify" style={{ width: '20rem' }}>
-                <strong>username</strong> - {userInfo.username} <br />
-                <strong>email </strong>- {userInfo.email} <br />
-                <strong>businessName </strong>- {userInfo.businessName} <br />
-                <strong>address </strong>- {userInfo.address} <br />
-            </p>
+        <div class="container mt-5 mb-5 d-flex justify-content-center">
+            <div class="card px-1 py-4">
+                <div class="card-body">
+                    <h4>Your Account Details</h4>
+                    <p className="text-justify" style={{ width: '20rem' }}>
+                        <strong>username</strong> - {userInfo.username} <br />
+                        <strong>email </strong>- {userInfo.email} <br />
+                        <strong>businessName </strong>- {userInfo.businessName} <br />
+                        <strong>address </strong>- {userInfo.address} <br />
+                    </p>
+                </div>
+            </div>
         </div>
     )
 }

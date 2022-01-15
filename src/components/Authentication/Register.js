@@ -48,31 +48,32 @@ const Register = (props) => {
         }
     }
     return (
-        <form onSubmit={handleFormSubmit} >
-            <div className="form-group">
-                <label >Name</label> <br />
-                <input type="text" className="form-control" value={userName} onChange={handleInputChange} name='userName' /> <br />
+        <div class="container mt-5 mb-5 d-flex justify-content-center">
+            <div class="card px-1 py-4">
+                <div class="card-body">
+                    <form onSubmit={handleFormSubmit} >
+                        <div className="form-group col-lg-12">
+                            <input type="text" className="form-control" value={userName} onChange={handleInputChange} name='userName' placeholder="Name" />
+                        </div>
+                        <div className="form-group col-lg-12">
+                            <input type="email" className="form-control" value={userEmail} onChange={handleInputChange} name='userEmail' placeholder="Email" />
+                        </div>
+                        <div className="form-group col-lg-12">
+                            <input type="password" className="form-control" value={userPw} onChange={handleInputChange} name='userPw' placeholder="Password" />
+                        </div>
+                        <div className="form-group col-lg-12">
+                            <input type="text" className="form-control" value={userBusinessName} onChange={handleInputChange} name='userBusinessName' placeholder="Store Name" />
+                        </div>
+                        <div className="form-group col-lg-12">
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" value={userAddress} onChange={handleInputChange} name='userAddress' placeholder="Address"></textarea>
+                        </div>
+                        <div className="form-group ">
+                            <button type="submit" className="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div className="form-group">
-                <label >Email address</label> <br />
-                <input type="email" className="form-control" value={userEmail} onChange={handleInputChange} name='userEmail' /> <br />
-            </div>
-            <div className="form-group">
-                <label >Password</label> <br />
-                <input type="password" className="form-control" value={userPw} onChange={handleInputChange} name='userPw' />
-            </div>
-            <div className="form-group">
-                <label >Businees Name</label> <br />
-                <input type="text" className="form-control" value={userBusinessName} onChange={handleInputChange} name='userBusinessName' /> <br />
-            </div>
-            <div className="form-group">
-                <label >Businees address</label> <br />
-                <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" value={userAddress} onChange={handleInputChange} name='userAddress'></textarea>
-            </div>
-            <div className="form-group">
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </div>
-        </form>
+        </div >
     )
 }
 export default withRouter(Register)

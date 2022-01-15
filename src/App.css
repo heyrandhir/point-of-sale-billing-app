@@ -80,3 +80,12 @@ nav {
   margin: 8px;
   padding: 8px;
 }
+
+.cart-item-name {
+  display: inline-block;
+  width: 120px;
+}
+.cart-item-mrp {
+  display: inline-block;
+  width: 50px;
+}
